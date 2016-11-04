@@ -5,40 +5,11 @@ Version  : 0.1rc3
 Release  : 1
 URL      : https://github.com/BVLC/caffe
 Source0  : caffe-0.1rc3.tar.gz
-Summary  : No detailed summary available
+Summary  : Deep learning framework from BVLC
 Group    : Development/Tools
 License  : BSD-2-Clause
-Requires: caffe-bin
-Requires: caffe-python
-Requires: caffe-lib
-Requires: caffe-data
-BuildRequires : boost-devel
-BuildRequires : cmake
-BuildRequires : doxygen
-BuildRequires : gflags-devel
-BuildRequires : glog-devel
-BuildRequires : python2-h5py
-BuildRequires : hdf5-devel
-BuildRequires : leveldb-devel
-BuildRequires : lmdb-devel
-BuildRequires : python-nose
-BuildRequires : python2-numpy
-BuildRequires : openblas-devel
-BuildRequires : opencv-devel
-BuildRequires : protobuf-devel
-BuildRequires : python-devel
-BuildRequires : python2-scipy
-BuildRequires : snappy-devel
-#Patch1: config.patch
-#Patch2: 0001-add-InputLayer-for-Net-input.patch
-#Patch3: 0002-deprecate-input-fields-and-upgrade-automagically.patch
-#Patch4: 0003-drop-Net-inputs-Forward-with-bottoms.patch
-#Patch5: 0004-collect-Net-inputs-from-Input-layers.patch
-#Patch6: 0005-examples-switch-examples-models-to-Input-layers.patch
-#Patch7: 0006-Deprecate-ForwardPrefilled-Forward-bottom-loss-in-li.patch
-#Patch8: faster-vector.patch
-#Patch9: vector.patch
-#Patch10: pow.patch
+Requires: caffe-bin, caffe-python, caffe-lib, caffe-data
+BuildRequires: boost-devel, cmake, doxygen, gflags-devel, glog-devel, python2-h5py, hdf5-devel, leveldb-devel, lmdb-devel, python-nose, python2-numpy, openblas-devel, opencv-devel, protobuf-devel, python-devel, python2-scipy, snappy-devel
 
 %description
 Caffe is a deep learning framework made with expression, speed, and modularity in mind. It is developed by the Berkeley Vision and Learning Center (BVLC) and by community contributors. Yangqing Jia created the project during his PhD at UC Berkeley.
