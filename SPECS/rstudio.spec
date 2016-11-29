@@ -41,6 +41,7 @@ BuildRequires:  gcc-c++
 BuildRequires:  hunspell-devel
 BuildRequires:  java-devel
 BuildRequires:  openssl-devel
+BuildRequires:  pam-devel
 BuildRequires:  pandoc
 BuildRequires:  qt5-devel
 BuildRequires:  libuuid-devel
