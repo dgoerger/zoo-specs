@@ -1,6 +1,6 @@
 Name:		clang
 Version:	3.8.0
-Release:	100%{?dist}
+Release:	101%{?dist}
 Summary:	A C language family front-end for LLVM
 
 License:	NCSA
@@ -26,13 +26,6 @@ Requires:	%{name}-libs%{?_isa} = %{version}-%{release}
 # - https://bugzilla.redhat.com/show_bug.cgi?id=1158594
 Requires:	libstdc++-devel
 Requires:	gcc-c++
-
-# mostly out of laziness in separating the files sections out below - probably correctly a 'clang-tools-extra' package
-Provides:       clang-apply-replacements
-Provides:       clang-query
-Provides:       clang-rename
-Provides:       clang-tidy
-Provides:       clang-tools-extra
 
 %description
 clang: noun
@@ -72,6 +65,17 @@ The Clang Static Analyzer consists of both a source code analysis
 framework and a standalone tool that finds bugs in C and Objective-C
 programs. The standalone tool is invoked from the command-line, and is
 intended to run in tandem with a build of a project or code base.
+
+%package tools-extra
+Summary: Extra tools for clang
+Requires:       %{name} = %{version}-%{release}
+Provides:       clang-apply-replacements
+Provides:       clang-query
+Provides:       clang-rename
+Provides:       clang-tidy
+
+%description tools-extra
+Extra tools for clang.
 
 %prep
 %setup -q -n cfe-%{version}.src clang-tools-extra-%{version}.src
@@ -123,10 +127,14 @@ rm -vf %{buildroot}%{_datadir}/clang/clang-format-diff.py*
 
 %files
 %{_libdir}/%{name}/
-%{_bindir}/%{name}*
+%{_bindir}/%{name}
+%{_bindir}/%{name}++
+%{_bindir}/%{name}-3.8
+%{_bindir}/%{name}-check
+%{_bindir}/%{name}-cl
+%{_bindir}/%{name}-format
 %{_bindir}/c-index-test
 %{_bindir}/modularize
-#%{_datadir}/%{name}/
 
 %files libs
 %{_libdir}/*.so.*
@@ -148,8 +156,14 @@ rm -vf %{buildroot}%{_datadir}/clang/clang-format-diff.py*
 %{_datadir}/scan-build/
 %{_mandir}/man1/scan-build.1.*
 
+%files tools-extra
+%{_bindir}/%{name}-apply-replacements
+%{_bindir}/%{name}-query
+%{_bindir}/%{name}-rename
+%{_bindir}/%{name}-tidy
+
 %changelog
-* Wed Nov 16 2016 David Goerger <david.goerger@yale.edu> - 3.8.0-100
+* Wed Nov 16 2016 David Goerger <david.goerger@yale.edu> - 3.8.0-101
 - add clang-tools-extra
 
 * Mon Nov 14 2016 Nathaniel McCallum <npmccallum@redhat.com> - 3.8.0-3
