@@ -17,6 +17,7 @@ BuildRequires:	cmake
 BuildRequires:	llvm-devel = %{version}
 BuildRequires:	libxml2-devel
 BuildRequires:  llvm-static = %{version}
+BuildRequires:  perl-generators
 BuildRequires:  tar
 
 Requires:	%{name}-libs%{?_isa} = %{version}-%{release}
@@ -126,13 +127,13 @@ rm -vf %{buildroot}%{_datadir}/clang/clang-format-diff.py*
 #make check-all
 
 %files
-%{_libdir}/%{name}/
-%{_bindir}/%{name}
-%{_bindir}/%{name}++
-%{_bindir}/%{name}-3.8
-%{_bindir}/%{name}-check
-%{_bindir}/%{name}-cl
-%{_bindir}/%{name}-format
+%{_libdir}/clang/
+%{_bindir}/clang
+%{_bindir}/clang++
+%{_bindir}/clang-3.8
+%{_bindir}/clang-check
+%{_bindir}/clang-cl
+%{_bindir}/clang-format
 %{_bindir}/c-index-test
 %{_bindir}/modularize
 
@@ -141,10 +142,10 @@ rm -vf %{buildroot}%{_datadir}/clang/clang-format-diff.py*
 %{_libdir}/*.so
 
 %files devel
-%{_includedir}/%{name}/
+%{_includedir}/clang/
 %{_includedir}/clang-c/
-%{_datadir}/%{name}/
-%{_datadir}/%{name}/cmake/
+%dir %{_datadir}/clang/
+%{_datadir}/clang/cmake/
 
 %files analyzer
 %{_bindir}/scan-view
@@ -157,10 +158,10 @@ rm -vf %{buildroot}%{_datadir}/clang/clang-format-diff.py*
 %{_mandir}/man1/scan-build.1.*
 
 %files tools-extra
-%{_bindir}/%{name}-apply-replacements
-%{_bindir}/%{name}-query
-%{_bindir}/%{name}-rename
-%{_bindir}/%{name}-tidy
+%{_bindir}/clang-apply-replacements
+%{_bindir}/clang-query
+%{_bindir}/clang-rename
+%{_bindir}/clang-tidy
 
 %changelog
 * Wed Nov 16 2016 David Goerger <david.goerger@yale.edu> - 3.8.0-101
