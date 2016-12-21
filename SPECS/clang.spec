@@ -144,12 +144,10 @@ rm -vf %{buildroot}%{_datadir}/clang/clang-format-diff.py*
 %files devel
 %{_includedir}/clang/
 %{_includedir}/clang-c/
-%dir %{_datadir}/clang/
-%{_datadir}/clang/cmake/
+%{_datadir}/clang/
 
 %files analyzer
 %{_bindir}/scan-view
-%{_bindir}/scan-build
 %{_bindir}/scan-build
 %{_libexecdir}/ccc-analyzer
 %{_libexecdir}/c++-analyzer
