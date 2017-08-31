@@ -1,8 +1,8 @@
 %global version_major 1
 %global version_minor 0
-%global version_patch 44
+%global version_patch 143
 
-%global co_date 20160730
+%global co_date 20160413
 %global gin_ver 1.5
 %global gwt_ver 2.7.0
 %global junit_ver 4.9b3
@@ -11,7 +11,7 @@
 
 Name:           rstudio
 Version:        %{version_major}.%{version_minor}.%{version_patch}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        Integrated development environment for the R programming language
 
 License:        AGPLv3
@@ -269,6 +269,9 @@ fi
 
 
 %changelog
+* Sat Jun 10 2017 David Goerger <david.goerger@yale.edu> - 1.0.143-1
+- update to 1.0.143
+
 * Tue Nov 22 2016 David Goerger <david.goerger@yale.edu> - 1.0.44-2
 - include rstudio-server subpackage
 

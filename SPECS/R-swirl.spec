@@ -5,12 +5,11 @@
 %define coursesdir Courses
 
 Name:             R-%{packname}
-Version:          2.4.2
-Release:          3%{?dist}
+Version:          2.4.3
+Release:          1%{?dist}
 Source0:          ftp://cran.r-project.org/pub/R/contrib/main/%{packname}_%{version}.tar.gz
-# bundle: https://github.com/swirldev/swirl_courses
+# let's also bundle R-swirl_courses: https://github.com/swirldev/swirl_courses
 Source1:          swirl_courses.30b1b1e.tar.xz
-# workaround: https://github.com/swirldev/swirl/issues/534
 Patch0:           534_swirl_userdata.patch
 License:          GPLv2+
 URL:              http://cran.r-project.org/src/contrib
@@ -20,7 +19,6 @@ BuildRequires:    R-devel
 BuildRequires:    R-RCurl, R-digest, R-testthat, R-stringr, R-httr, R-yaml
 BuildRoot:        %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires:         R-RCurl, R-digest, R-testthat, R-stringr, R-httr, R-yaml
-Obsoletes:        R-swirl_courses
 
 %description
 R interface to swirl. swirl is a software package for the R programming
@@ -42,11 +40,14 @@ mkdir -p $RPM_BUILD_ROOT%{_libdir}/R/library
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -rf $RPM_BUILD_ROOT%{_libdir}/R/library/R.css
 
+# don't conflict with R-swirl_courses package
+#rm -rf $RPM_BUILD_ROOT%{_libdir}/R/library/%{packname}/Courses
+
 # copy in courses
 tar -xf  %{_builddir}/%{packname}/swirl_courses.30b1b1e.tar.xz -C %{buildroot}%{_libdir}/R/library/%{packname}/%{coursesdir}
 
 %check
-# workaround: https://github.com/swirldev/swirl/issues/533
+# needed to pass the test-encoding.R#27
 export LC_ALL="en_US.UTF-8"
 %{_bindir}/R CMD check %{packname}
 
@@ -65,12 +66,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/R/library/%{packname}/R
 %{_libdir}/R/library/%{packname}/help
 %{_libdir}/R/library/%{packname}/test/
-%{_libdir}/R/library/%{packname}/%{coursesdir}
+%{_libdir}/R/library/%{packname}/Courses/
 
 %changelog
-* Thu Sep 15 2016 David Goerger <its-sa@yale.edu> 2.4.2-3
-- add patch for correct user_data default directory in $HOME
-- bundle swirl_courses so these do not need to be installed separately
+* Sat Jun 10 2017 David Goerger <david.goerger@yale.edu> - 2.4.3-1
+- update to 2.4.3
 
 * Wed Sep 07 2016 David Goerger <its-sa@yale.edu> 2.4.2-2
 - update to 2.4.2

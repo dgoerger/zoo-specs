@@ -2,14 +2,14 @@
 %global pypi_name tensorflow
 
 Name:           python-%{pypi_name}-gpu
-Version:        0.12.0rc1
+Version:        1.1.0
 Release:        1%{?dist}
 Summary:        TensorFlow helps the tensors flow
 
 License:        Apache 2.0
 URL:            http://tensorflow.org/
 Source0:        https://files.pythonhosted.org/packages/source/t/%{pypi_name}/%{pypi_name}_gpu-%{version}-cp27-none-linux_x86_64.whl
-Source1:        https://files.pythonhosted.org/packages/source/t/%{pypi_name}/%{pypi_name}_gpu-%{version}-cp35-cp35m-linux_x86_64.whl
+Source1:        https://files.pythonhosted.org/packages/source/t/%{pypi_name}/%{pypi_name}_gpu-%{version}-cp36-cp36m-linux_x86_64.whl
 BuildArch:      x86_64
  
 BuildRequires:  python-setuptools
@@ -17,7 +17,7 @@ BuildRequires:  python-six >= 1.10.0
 BuildRequires:  python2-devel
 BuildRequires:  python-mock >= 2.0.0
 BuildRequires:  python-numpy >= 1.11.0
-BuildRequires:  python-protobuf == 3.0.0
+BuildRequires:  python2-protobuf == 3.2.0
 BuildRequires:  python-scipy >= 0.15.1
 BuildRequires:  python-wheel
 BuildRequires:  python-pip
@@ -27,7 +27,7 @@ BuildRequires:  python3-six >= 1.10.0
 BuildRequires:  python3-devel
 BuildRequires:  python3-mock >= 2.0.0
 BuildRequires:  python3-numpy >= 1.11.0
-BuildRequires:  python3-protobuf == 3.0.0
+BuildRequires:  python3-protobuf == 3.2.0
 BuildRequires:  python3-scipy >= 0.15.1
 BuildRequires:  python3-wheel
 BuildRequires:  python3-pip
@@ -42,7 +42,7 @@ Summary:        TensorFlow helps the tensors flow
 Requires:       python-six >= 1.10.0
 Requires:       python-mock >= 2.0.0
 Requires:       python-numpy >= 1.11.0
-Requires:       python-protobuf == 3.0.0
+Requires:       python2-protobuf == 3.2.0
 Requires:       python-wheel
 # assumes http://negativo17.org/nvidia-driver/
 Requires:       cuda-devel => 8.0
@@ -59,7 +59,7 @@ Summary:        TensorFlow helps the tensors flow
 Requires:       python3-six >= 1.10.0
 Requires:       python3-mock >= 2.0.0
 Requires:       python3-numpy >= 1.11.0
-Requires:       python3-protobuf == 3.0.0
+Requires:       python3-protobuf == 3.2.0
 Requires:       python3-wheel
 # assumes http://negativo17.org/nvidia-driver/
 Requires:       cuda-devel => 8.0
@@ -106,5 +106,8 @@ sed -i "s/tensorflow-gpu/tensorflow/" %{buildroot}/%{python2_sitelib}/%{pypi_nam
 
 
 %changelog
+* Thu Apr 27 2017 David Goerger - 1.1.0
+- update to latest
+
 * Wed Dec 14 2016 David Goerger - 0.12.0rc1-1
 - package tensorflow-gpu

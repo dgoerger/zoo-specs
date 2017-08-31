@@ -1,37 +1,36 @@
-%global packname  hash
+%global packname  bindrcpp
 %global rlibdir  %{_libdir}/R/library
 
 
 Name:             R-%{packname}
-Version:          2.2.6
+Version:          0.2
 Release:          1%{?dist}
-Summary:          Full feature implementation of hash/associated arrays/dictionaries
+Summary:          An 'Rcpp' Interface to Active Bindings
 
 Group:            Applications/Engineering 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              http://cran.r-project.org/web/packages/%{packname}/index.html
 Source0:          http://cran.r-project.org/src/contrib/%{packname}_%{version}.tar.gz
 BuildRoot:        %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 # Here's the R view of the dependencies world:
-# Depends:   R-methods R-utils
-# Imports:   
+# Depends:   
+# Imports:   R-Rcpp R-bindr
 # Suggests:  R-testthat
 # LinkingTo:
 # Enhances:
 
 
-Requires:         R-methods R-utils 
 
+Requires:         R-Rcpp R-bindr R-plogr
 Requires:         R-testthat 
-BuildRequires:    R-devel tex(latex) R-methods R-utils
-
-BuildRequires:   R-testthat 
+BuildRequires:    R-devel tex(latex) 
+BuildRequires:    R-Rcpp-devel R-bindr 
+BuildRequires:    R-testthat R-plogr-devel
 
 %description
-This package implements a data structure similar to hashes in Perl and
-dictionaries in Python but with a purposefully R flavor.  For objects of
-appreciable size, access using hashes outperforms native named lists and
+Provides an easy way to fill an environment with active bindings that call
+a C++ function.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,17 +53,19 @@ rm -rf %{buildroot}
 %files
 %defattr(-, root, root, -)
 %dir %{rlibdir}/%{packname}
-%doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/DESCRIPTION
-%doc %{rlibdir}/%{packname}/NEWS
+%doc %{rlibdir}/%{packname}/NEWS.md
 %{rlibdir}/%{packname}/INDEX
+%{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/NAMESPACE
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/include
+%{rlibdir}/%{packname}/libs
 
 
 %changelog
-* Fri Jun 30 2017 deg38 <> 2.2.6-1
+* Mon Aug 07 2017 deg38 <> 0.2-1
 - initial package for Fedora

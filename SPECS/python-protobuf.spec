@@ -1,8 +1,8 @@
 # Created by pyp2rpm-3.1.3
 %global pypi_name protobuf
 
-Name:           %{pypi_name}
-Version:        3.1.0.post1
+Name:           python-%{pypi_name}
+Version:        3.2.0
 Release:        1%{?dist}
 Summary:        Protocol Buffers
 
@@ -61,17 +61,19 @@ rm -rf %{pypi_name}.egg-info
 %{__python3} setup.py test
 
 %files -n python2-%{pypi_name}
-%doc README.md
-%{python2_sitelib}/protobuf_3.1.0.post1_py2.7_nspkg.pth
+#%doc README.md
+%{python2_sitelib}/%{pypi_name}-%{version}-py?.?-nspkg.pth
 %{python2_sitelib}/google
 %{python2_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
 
 %files -n python3-%{pypi_name}
-%doc README.md
-%{python3_sitelib}/protobuf_3.1.0.post1_py2.7_nspkg.pth
+%{python3_sitelib}/%{pypi_name}-%{version}-py?.?-nspkg.pth
 %{python3_sitelib}/google
 %{python3_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
 
 %changelog
+* Thu Apr 27 2017 David Goerger - 3.2.0
+- update to 3.2.0
+
 * Fri Nov 11 2016 David Goerger - 3.1.0.post1-1
 - Initial package.

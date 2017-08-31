@@ -2,7 +2,7 @@
 %global packrel 1
 
 Name:             R-%{packname}
-Version:          0.9.4
+Version:          0.9.6
 Release:          1%{?dist}
 Source0:          ftp://cran.r-project.org/pub/R/contrib/main/%{packname}_%{version}.tar.gz
 License:          MIT
@@ -47,9 +47,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/R/library/%{packname}/R
 %{_libdir}/R/library/%{packname}/help
 %{_libdir}/R/library/%{packname}/cacert.pem
-%{_libdir}/R/library/%{packname}/testkey.pem
 %{_libdir}/R/library/%{packname}/libs/openssl.so
 
 %changelog
+* Sat Jun 10 2017 David Goerger <david.goerger@yale.edu> - 0.9.6-1
+- update to 0.9.6 for openssl 1.1.x support
+
 * Thu Jul 28 2016 David Goerger <its-sa@yale.edu> 0.9.4-1
 - initial package creation
