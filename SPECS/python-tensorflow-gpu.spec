@@ -2,12 +2,13 @@
 %global pypi_name tensorflow
 
 Name:           python-%{pypi_name}-gpu
-Version:        1.1.0
+Version:        1.4.0
 Release:        1%{?dist}
 Summary:        TensorFlow helps the tensors flow
 
 License:        Apache 2.0
 URL:            http://tensorflow.org/
+# https://www.tensorflow.org/install/install_linux#the_url_of_the_tensorflow_python_package
 Source0:        https://files.pythonhosted.org/packages/source/t/%{pypi_name}/%{pypi_name}_gpu-%{version}-cp27-none-linux_x86_64.whl
 Source1:        https://files.pythonhosted.org/packages/source/t/%{pypi_name}/%{pypi_name}_gpu-%{version}-cp36-cp36m-linux_x86_64.whl
 BuildArch:      x86_64
@@ -99,6 +100,7 @@ sed -i "s/tensorflow-gpu/tensorflow/" %{buildroot}/%{python2_sitelib}/%{pypi_nam
 %{python2_sitelib}/%{pypi_name}*
 
 %files -n python3-%{pypi_name}-gpu
+%{_bindir}/saved_model_cli
 %{_bindir}/tensorboard
 %{_bindir}/tensorboard-3
 %{_bindir}/tensorboard-%{python3_version}
@@ -106,6 +108,9 @@ sed -i "s/tensorflow-gpu/tensorflow/" %{buildroot}/%{python2_sitelib}/%{pypi_nam
 
 
 %changelog
+* Wed Nov 08 2017 David Goerger - 1.4.0-1
+- update to latest
+
 * Thu Apr 27 2017 David Goerger - 1.1.0
 - update to latest
 
