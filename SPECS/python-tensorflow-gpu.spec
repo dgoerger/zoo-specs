@@ -18,7 +18,7 @@ BuildRequires:  python-six >= 1.10.0
 BuildRequires:  python2-devel
 BuildRequires:  python-mock >= 2.0.0
 BuildRequires:  python-numpy >= 1.11.0
-BuildRequires:  python2-protobuf == 3.2.0
+BuildRequires:  python2-protobuf >= 3.2.0
 BuildRequires:  python-scipy >= 0.15.1
 BuildRequires:  python-wheel
 BuildRequires:  python-pip
@@ -28,7 +28,7 @@ BuildRequires:  python3-six >= 1.10.0
 BuildRequires:  python3-devel
 BuildRequires:  python3-mock >= 2.0.0
 BuildRequires:  python3-numpy >= 1.11.0
-BuildRequires:  python3-protobuf == 3.2.0
+BuildRequires:  python3-protobuf >= 3.2.0
 BuildRequires:  python3-scipy >= 0.15.1
 BuildRequires:  python3-wheel
 BuildRequires:  python3-pip
@@ -43,7 +43,7 @@ Summary:        TensorFlow helps the tensors flow
 Requires:       python-six >= 1.10.0
 Requires:       python-mock >= 2.0.0
 Requires:       python-numpy >= 1.11.0
-Requires:       python2-protobuf == 3.2.0
+Requires:       python2-protobuf >= 3.2.0
 Requires:       python-wheel
 # assumes http://negativo17.org/nvidia-driver/
 Requires:       cuda-devel => 8.0
@@ -60,7 +60,7 @@ Summary:        TensorFlow helps the tensors flow
 Requires:       python3-six >= 1.10.0
 Requires:       python3-mock >= 2.0.0
 Requires:       python3-numpy >= 1.11.0
-Requires:       python3-protobuf == 3.2.0
+Requires:       python3-protobuf >= 3.2.0
 Requires:       python3-wheel
 # assumes http://negativo17.org/nvidia-driver/
 Requires:       cuda-devel => 8.0
