@@ -1,5 +1,5 @@
 Name:		racket
-Version:	6.10
+Version:	6.11
 Release:	1%{?dist}
 Summary:	Racket is a full-spectrum programming language
 
@@ -103,6 +103,9 @@ update-desktop-database &> /dev/null || :
 %{_libdir}/*.so
 
 %changelog
+* Sun Nov 19 2017 David Goerger - 6.11-1
+- update to 6.11
+
 * Thu Aug 31 2017 David Goerger <david.goerger@yale.edu> - 6.10-1
 - update to 6.10
 
