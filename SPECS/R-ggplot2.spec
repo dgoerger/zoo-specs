@@ -16,11 +16,11 @@ BuildRoot:        %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 # tbh lazy deps resolution == all R packages that are installed on a working system, regardless of if necessary
 Requires:         libxml2
+Requires:         openssl
 Requires:         tex(latex)
 Requires:         R
 Requires:         R-ALL
 Requires:         R-AnnotationDbi
-Requires:         R-BH
 Requires:         R-BSgenome
 Requires:         R-BSgenome.Celegans.UCSC.ce2
 Requires:         R-Biobase
@@ -65,9 +65,8 @@ Requires:         R-acepack
 Requires:         R-affy
 Requires:         R-affydata
 Requires:         R-affyio
+Requires:         R-assertthat
 Requires:         R-biglm
-Requires:         R-bindr
-Requires:         R-bindrcpp
 Requires:         R-biomaRt
 Requires:         R-bitops
 Requires:         R-caTools
@@ -82,13 +81,10 @@ Requires:         R-expm
 Requires:         R-fibroEset
 Requires:         R-futile.logger
 Requires:         R-futile.options
-Requires:         R-gtools
-Requires:         R-hash
 Requires:         R-hgu133acdf
 Requires:         R-hgu95av2cdf
 Requires:         R-hgu95av2probe
 Requires:         R-highlight
-Requires:         R-httr
 Requires:         R-inline
 Requires:         R-java
 Requires:         R-jsonlite
@@ -108,15 +104,16 @@ Requires:         R-multcomp
 Requires:         R-multtest
 Requires:         R-mvtnorm
 Requires:         R-nws
-Requires:         R-openssl
 Requires:         R-plogr
 Requires:         R-pls
+Requires:         R-plyr
 Requires:         R-praise
 Requires:         R-preprocessCore
 Requires:         R-preprocessCore
 Requires:         R-qcc
 Requires:         R-qtl
 Requires:         R-qvalue
+Requires:         R-reshape2
 Requires:         R-rlecuyer
 Requires:         R-rtracklayer
 Requires:         R-sandwich
@@ -124,10 +121,8 @@ Requires:         R-sciplot
 Requires:         R-shogun
 Requires:         R-snow
 Requires:         R-statmod
-Requires:         R-stockPortfolio
 Requires:         R-stringi
 Requires:         R-stringr
-Requires:         R-swirl
 Requires:         R-systemfit
 Requires:         R-testthat
 Requires:         R-timeDate
@@ -135,13 +130,17 @@ Requires:         R-tkWidgets
 Requires:         R-waveslim
 Requires:         R-wavethresh
 Requires:         R-widgetTools
+Requires:         R-xml2
 Requires:         R-xtable
 Requires:         R-yaml
 Requires:         R-zoo
+
 BuildRequires:    chrpath
+BuildRequires:    findutils
 BuildRequires:    libxml2-devel
+BuildRequires:    openssl-devel
 BuildRequires:    tex(latex)
-BuildRequires:    R-BH
+BuildRequires:    R-BH-devel
 BuildRequires:    R-Biostrings-devel
 BuildRequires:    R-BufferedMatrix-devel
 BuildRequires:    R-IRanges-devel
@@ -151,7 +150,6 @@ BuildRequires:    R-Rsamtools-devel
 BuildRequires:    R-Rsolid-devel
 BuildRequires:    R-S4Vectors-devel
 BuildRequires:    R-XVector-devel
-BuildRequires:    R-bindrcpp
 BuildRequires:    R-core-devel
 BuildRequires:    R-devel
 BuildRequires:    R-digest-devel
@@ -163,7 +161,6 @@ BuildRequires:    R-zoo-devel
 BuildRequires:    R
 BuildRequires:    R-ALL
 BuildRequires:    R-AnnotationDbi
-BuildRequires:    R-BH
 BuildRequires:    R-BSgenome
 BuildRequires:    R-BSgenome.Celegans.UCSC.ce2
 BuildRequires:    R-Biobase
@@ -208,9 +205,8 @@ BuildRequires:    R-acepack
 BuildRequires:    R-affy
 BuildRequires:    R-affydata
 BuildRequires:    R-affyio
+BuildRequires:    R-assertthat
 BuildRequires:    R-biglm
-BuildRequires:    R-bindr
-BuildRequires:    R-bindrcpp
 BuildRequires:    R-biomaRt
 BuildRequires:    R-bitops
 BuildRequires:    R-caTools
@@ -225,13 +221,10 @@ BuildRequires:    R-expm
 BuildRequires:    R-fibroEset
 BuildRequires:    R-futile.logger
 BuildRequires:    R-futile.options
-BuildRequires:    R-gtools
-BuildRequires:    R-hash
 BuildRequires:    R-hgu133acdf
 BuildRequires:    R-hgu95av2cdf
 BuildRequires:    R-hgu95av2probe
 BuildRequires:    R-highlight
-BuildRequires:    R-httr
 BuildRequires:    R-inline
 BuildRequires:    R-java
 BuildRequires:    R-jsonlite
@@ -251,15 +244,16 @@ BuildRequires:    R-multcomp
 BuildRequires:    R-multtest
 BuildRequires:    R-mvtnorm
 BuildRequires:    R-nws
-BuildRequires:    R-openssl
 BuildRequires:    R-plogr
 BuildRequires:    R-pls
+BuildRequires:    R-plyr
 BuildRequires:    R-praise
 BuildRequires:    R-preprocessCore
 BuildRequires:    R-preprocessCore
 BuildRequires:    R-qcc
 BuildRequires:    R-qtl
 BuildRequires:    R-qvalue
+BuildRequires:    R-reshape2
 BuildRequires:    R-rlecuyer
 BuildRequires:    R-rtracklayer
 BuildRequires:    R-sandwich
@@ -267,10 +261,8 @@ BuildRequires:    R-sciplot
 BuildRequires:    R-shogun
 BuildRequires:    R-snow
 BuildRequires:    R-statmod
-BuildRequires:    R-stockPortfolio
 BuildRequires:    R-stringi
 BuildRequires:    R-stringr
-BuildRequires:    R-swirl
 BuildRequires:    R-systemfit
 BuildRequires:    R-testthat
 BuildRequires:    R-timeDate
@@ -278,10 +270,64 @@ BuildRequires:    R-tkWidgets
 BuildRequires:    R-waveslim
 BuildRequires:    R-wavethresh
 BuildRequires:    R-widgetTools
+BuildRequires:    R-xml2-devel
 BuildRequires:    R-xtable
 BuildRequires:    R-yaml
 BuildRequires:    R-zoo
 
+Provides: R-RColorBrewer
+Provides: R-backports
+Provides: R-base64enc
+Provides: R-bindr
+Provides: R-bindrcpp
+Provides: R-broom
+Provides: R-callr
+Provides: R-cellranger
+Provides: R-cli
+Provides: R-clipr
+Provides: R-colorspace
+Provides: R-crayon
+Provides: R-dichromat
+Provides: R-dbplyr
+Provides: R-dplyr
+Provides: R-evaluate
+Provides: R-forcats
+Provides: R-glue
+Provides: R-gtable
+Provides: R-haven
+Provides: R-highr
+Provides: R-hms
+Provides: R-htmltools
+Provides: R-httr
+Provides: R-knitr
+Provides: R-labeling
+Provides: R-lazyeval
+Provides: R-lubridate
+Provides: R-markdown
+Provides: R-mnormt
+Provides: R-modelr
+Provides: R-munsell
+Provides: R-openssl
+Provides: R-pkgconfig
+Provides: R-psych
+Provides: R-purrr
+Provides: R-readr
+Provides: R-readxl
+Provides: R-rematch
+Provides: R-reprex
+Provides: R-rlang
+Provides: R-rmarkdown
+Provides: R-rprojroot
+Provides: R-rstudioapi
+Provides: R-rvest
+Provides: R-scales
+Provides: R-selectr
+Provides: R-tibble
+Provides: R-tidyr
+Provides: R-tidyselect
+Provides: R-tidyverse
+Provides: R-viridisLite
+Provides: R-whisker
 
 %description
 A system for 'declaratively' creating graphics, based on "The Grammar of
@@ -298,6 +344,8 @@ rm -rf %{buildroot}
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/echo 'install.packages("tidyverse", lib="%{buildroot}%{rlibdir}", repos="https://cran.r-project.org/")' | %{_bindir}/Rscript -
 rm -f %{buildroot}%{rlibdir}/R.css
+find %{buildroot}%{rlibdir} -type f -name "*.so" -exec strip {} \;
+
 
 %check
 
@@ -321,41 +369,64 @@ rm -rf %{buildroot}
 %{rlibdir}/%{packname}/data
 # deps - bundling for efficiency, remove and add to RPM 'Requires' above once packaged in Fedora proper
 %{rlibdir}/RColorBrewer
-%{rlibdir}/assertthat
+%{rlibdir}/backports
+%{rlibdir}/base64enc
+%{rlibdir}/bindr
+%{rlibdir}/bindrcpp
 %{rlibdir}/broom
+%{rlibdir}/callr
 %{rlibdir}/cellranger
+%{rlibdir}/cli
+%{rlibdir}/clipr
 %{rlibdir}/colorspace
+%{rlibdir}/crayon
 %{rlibdir}/dichromat
+%{rlibdir}/dbplyr
 %{rlibdir}/dplyr
+%{rlibdir}/evaluate
 %{rlibdir}/forcats
 %{rlibdir}/glue
 %{rlibdir}/gtable
 %{rlibdir}/haven
+%{rlibdir}/highr
 %{rlibdir}/hms
+%{rlibdir}/htmltools
+%{rlibdir}/httr
+%{rlibdir}/knitr
 %{rlibdir}/labeling
 %{rlibdir}/lazyeval
 %{rlibdir}/lubridate
+%{rlibdir}/markdown
 %{rlibdir}/mnormt
 %{rlibdir}/modelr
 %{rlibdir}/munsell
+%{rlibdir}/openssl
 %{rlibdir}/pkgconfig
-%{rlibdir}/plyr
 %{rlibdir}/psych
 %{rlibdir}/purrr
 %{rlibdir}/readr
 %{rlibdir}/readxl
 %{rlibdir}/rematch
-%{rlibdir}/reshape2
+%{rlibdir}/reprex
 %{rlibdir}/rlang
+%{rlibdir}/rmarkdown
+%{rlibdir}/rprojroot
+%{rlibdir}/rstudioapi
 %{rlibdir}/rvest
 %{rlibdir}/scales
 %{rlibdir}/selectr
 %{rlibdir}/tibble
 %{rlibdir}/tidyr
+%{rlibdir}/tidyselect
 %{rlibdir}/tidyverse
-%{rlibdir}/xml2
+%{rlibdir}/viridisLite
+%{rlibdir}/whisker
 
 
 %changelog
-* Tue Dec 13 2016 deg38 <> 2.2.0-1
+* Mon Nov 27 2017 David Goerger - 2.2.1-1
+- update to 2.2.1
+- remove bundled libs that are now packaged in Fedora proper
+
+* Tue Dec 13 2016 David Goerger - 2.2.0-1
 - initial package for Fedora
