@@ -1,8 +1,8 @@
 %global version_major 1
-%global version_minor 0
-%global version_patch 143
+%global version_minor 1
+%global version_patch 383
 
-%global co_date 20160413
+%global co_date 20160730
 %global gin_ver 1.5
 %global gwt_ver 2.7.0
 %global junit_ver 4.9b3
@@ -22,7 +22,6 @@ Source1:        https://s3.amazonaws.com/rstudio-dictionaries/core-dictionaries.
 # Additional build stuff
 Source2:        https://s3.amazonaws.com/rstudio-buildtools/gin-%{gin_ver}.zip
 Source3:        https://s3.amazonaws.com/rstudio-buildtools/gwt-%{gwt_ver}.zip
-#Source4:        https://s3.amazonaws.com/rstudio-buildtools/junit-%{junit_ver}.jar
 Source5:        https://s3.amazonaws.com/rstudio-buildtools/mathjax-%{mathjax_ver}.zip
 Source6:        https://s3.amazonaws.com/rstudio-buildtools/selenium-java-%{selenium_ver}.zip
 Source7:        https://s3.amazonaws.com/rstudio-buildtools/selenium-server-standalone-%{selenium_ver}.jar
@@ -32,6 +31,8 @@ Source8:        https://github.com/rstudio/shinyapps/archive/master.zip#/shinyap
 Source9:        https://github.com/rstudio/rsconnect/archive/master.zip#/rsconnect-%{co_date}.zip
 
 Patch0:         %{name}-%{version}-dependencies.patch
+Patch1:         %{name}-%{version}-openssl_1_1_0.patch
+Patch3:         %{name}-%{version}-sysmacros.patch
 
 BuildRequires:  ant
 BuildRequires:  boost-devel
@@ -130,6 +131,8 @@ This package provides the server edition.
 %prep
 %setup -q -n %{name}-%{version}
 %patch0 -p1
+%patch1 -p1
+%patch3 -p1
 
 # copy in additional resources
 cd dependencies/common
@@ -269,13 +272,16 @@ fi
 
 
 %changelog
-* Sat Jun 10 2017 David Goerger <david.goerger@yale.edu> - 1.0.143-1
+* Mon Nov 27 2017 David Goerger - 1.1.383-1
+- update to 1.1.383
+
+* Wed Jun 21 2017 David Goerger - 1.0.143-1
 - update to 1.0.143
 
-* Tue Nov 22 2016 David Goerger <david.goerger@yale.edu> - 1.0.44-2
+* Tue Nov 22 2016 David Goerger - 1.0.44-2
 - include rstudio-server subpackage
 
-* Tue Nov 22 2016 David Goerger <david.goerger@yale.edu> - 1.0.44-1
+* Tue Nov 22 2016 David Goerger - 1.0.44-1
 - update to 1.0.44
 
 * Sun Jul 31 2016 Christian Dersch <lupinix@mailbox.org> - 0.99.903-6

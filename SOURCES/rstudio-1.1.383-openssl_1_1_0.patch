@@ -1,0 +1,12 @@
+--- rstudio-1.0.143/src/cpp/core/http/SocketProxy.cpp	2017-04-13 12:16:15.000000000 -0400
++++ rstudio-1.0.143/src/cpp/core/http/SocketProxy-b.cpp	2017-06-21 21:14:03.507364328 -0400
+@@ -142,8 +142,7 @@
+ #ifndef _WIN32
+ bool isSslShutdownError(const core::Error& error)
+ {
+-   return error.code().category() == boost::asio::error::get_ssl_category() &&
+-          error.code().value() == ERR_PACK(ERR_LIB_SSL, 0, SSL_R_SHORT_READ);
++   return error.code() == boost::asio::ssl::error::stream_truncated;
+ }
+ #else
+ bool isSslShutdownError(const core::Error& error)
