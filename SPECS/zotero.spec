@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 
 Name:		  zotero
-Version:	5.0.12
+Version:	5.0.29
 Release:	1%{?dist}
 Summary:	Collect, organize, cite, and share research sources
 
@@ -40,5 +40,8 @@ install -Dm644 %{buildroot}/%{_libdir}/%{name}/chrome/icons/default/default256.p
 
 
 %changelog
-* Thu Aug 17 2017 David Goerger <david.goerger@yale.edu> - 5.0.12-1
+* Sun Dec 03 2017 David Goerger - 5.0.29-1
+- update to 5.0.29
+
+* Thu Aug 17 2017 David Goerger - 5.0.12-1
 - initial package
